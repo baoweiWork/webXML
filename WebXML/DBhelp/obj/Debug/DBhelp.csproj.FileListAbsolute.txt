@@ -1,0 +1,12 @@
+C:\Users\Administrator\source\repos\WebXML\DBhelp\bin\Debug\DBhelp.dll
+C:\Users\Administrator\source\repos\WebXML\DBhelp\bin\Debug\DBhelp.pdb
+C:\Users\Administrator\source\repos\WebXML\DBhelp\obj\Debug\DBhelp.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\WebXML\DBhelp\obj\Debug\DBhelp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\WebXML\DBhelp\obj\Debug\DBhelp.dll
+C:\Users\Administrator\source\repos\WebXML\DBhelp\obj\Debug\DBhelp.pdb
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\bin\Debug\DBhelp.dll
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\bin\Debug\DBhelp.pdb
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.dll
+C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.pdb

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <title></title>
+    <style>
+        .success {
+            background-image: url('../../Image/li_ok.gif');
+            background-color: #E6FEE4;
+            border-color: #01BE00;
+            background-repeat: no-repeat;
+            background-position: left 2px;
+            padding: 0 18px;
+        }
+
+        .danger {
+            background-color: #FFF2E5;
+            border-color: #FF3300;
+            background-repeat: no-repeat;
+            background-image: url('../../Image/li_err.gif');
+            background-position: left 2px;
+            padding: 0 18px;
+        }
+
+        .nav {
+            width: 650px;
+            margin: 50px auto;
+        }
+
+        .nav1 {
+            border: 1px solid #666666;
+            border-radius: 5px;
+        }
+
+        i {
+            font-size: 12px;
+            color: #999999;
+        }
+
+        label {
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        span {
+            background-color: #FFFFDA;
+            border: 1px solid #FFCD00;
+            font-size: 12px;
+            height: 20px;
+            line-height: 20px;
+            display: inline-block;
+            margin-left: 40px;
+        }
+
+        button {
+            margin-left: 159px;
+            border: dashed 1px transparent;
+            background-color: transparent;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav">
+        <div class="nav1">
+            <form action="2.html" method="post">
+                <p>
+                    <label for="addressee">收件人：</label>
+                    <input type="text" id="email"><i></i><span style="margin-left:19px">请输入邮箱</span>
+                </p>
+                <p>
+                    <label for="sendCopy">抄送人：</label>
+                    <input type="text" id="name"><span>多个邮箱用分号隔开</span>
+                </p>
+                <p>
+                    <label for="title">标题：</label>
+                    <input type="password" id="passWord">
+                </p>
+                <p>
+                    <label for="content">内容：</label>
+                    <input type="password" id="rePassWord"><span>请再次输入密码</span>
+                </p>
+
+                <p>
+                    <label for="sender">发件人：</label>
+                    <input type="text" id="email"><span>请输入发件人邮箱</span>
+                </p>
+                <button>
+                    <img src="~/Image/button.gif" />
+                </button>
+                <button>
+                    验证域名
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+    window.onload=function(e)
+    {
+        var form=document.querySelector('form');
+        var email=document.querySelector('#email');
+        var span=document.querySelectorAll('span');
+
+        //onsubmit事件
+        form.onsubmit=function(e)
+        {
+            var email=checkEmail();
+            if(!email)
+            {
+                return false;
+            }
+            return true;
+        };
+
+
+
+        //onblur失去焦点事件
+        email.onblur=function(e)
+        {
+            checkEmail();
+        };
+
+
+
+//---------------------------------函数封装-------------------------------------------------------------
+        //邮箱
+        function checkEmail(e)
+        {
+            if(email.value.length==0)
+            {
+                span[6].innerText='邮箱不能为空';
+                span[6].className='danger';
+                return false;
+            }
+            //var pattern=/^\w+([-+.]\w+)*\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            if(!pattern.test(email.value))
+            {
+                span[6].innerText='邮箱格式错误，请重新输入';
+                span[6].className='danger';
+                return false;
+            }
+            span[6].innerText='邮箱输入正确';
+            span[6].className='success';
+            return true;
+        }
+    }
+    </script>
+</body>
+</html>

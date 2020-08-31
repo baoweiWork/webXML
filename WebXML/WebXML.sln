@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebXML", "WebApplication1\WebXML.csproj", "{94EC43E0-055D-4126-A303-1E6D45B2B08E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBhelp", "DBhelp\DBhelp.csproj", "{E72E7505-7BEE-4C13-9A46-95BB5695ECCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94EC43E0-055D-4126-A303-1E6D45B2B08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EC43E0-055D-4126-A303-1E6D45B2B08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EC43E0-055D-4126-A303-1E6D45B2B08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EC43E0-055D-4126-A303-1E6D45B2B08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E72E7505-7BEE-4C13-9A46-95BB5695ECCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E72E7505-7BEE-4C13-9A46-95BB5695ECCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E72E7505-7BEE-4C13-9A46-95BB5695ECCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E72E7505-7BEE-4C13-9A46-95BB5695ECCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0424684A-7E71-47FC-B070-CC18A7487637}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,200 @@
+﻿
+@{
+    Layout = null;
+}
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>登录界面</title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/style.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+            function ok_or_errorBylogin(l) {
+                var content = $(l).val();
+                if (content != "") {
+                    $(l).parent().next().next().css("display", "none");
+                }
+            }
+
+            function ok_or_errorByRegister(r) {
+                var affirm_psd = $("#affirm_psd");
+                var psd_r = $("#psd_r");
+                var affirm_psd_v = $("#affirm_psd").val();
+                var psd_r_v = $("#psd_r").val();
+                var content = $(r).val();
+                if (content == "") {
+                    $(r).parent().next().next().css("display", "block");
+                    return false;
+                } else {
+                    $(r).parent().next().css("display", "block");
+                    $(r).parent().next().next().css("display", "none");
+                    if (psd_r_v == "") {
+                        $(psd_r).parent().next().css("display", "none");
+                        $(psd_r).parent().next().next().css("display", "none");
+                        $(psd_r).parent().next().next().css("display", "block");
+                        return false;
+                    }
+                    if (affirm_psd_v == "") {
+                        $(affirm_psd_v).parent().next().css("display", "none");
+                        $(affirm_psd_v).parent().next().next().css("display", "none");
+                        $(affirm_psd_v).parent().next().next().css("display", "block");
+                        return false;
+                    }
+                    if (psd_r_v == affirm_psd_v) {
+                        $(affirm_psd).parent().next().css("display", "none");
+                        $(affirm_psd).parent().next().next().css("display", "none");
+                        $(psd_r).parent().next().css("display", "none");
+                        $(psd_r).parent().next().next().css("display", "none");
+                        $(affirm_psd).parent().next().css("display", "block");
+                        $(psd_r).parent().next().css("display", "block");
+                    } else {
+                        $(affirm_psd).parent().next().css("display", "none");
+                        $(affirm_psd).parent().next().next().css("display", "none");
+                        $(psd_r).parent().next().css("display", "none");
+                        $(psd_r).parent().next().next().css("display", "none");
+                        $(psd_r).parent().next().css("display", "block");
+                        $(affirm_psd).parent().next().next().css("display", "block");
+                        return false;
+                    }
+                }
+            }
+
+            function barter_btn(bb) {
+                $(bb).parent().fadeOut(1000);
+                $(bb).parent().parent().siblings().fadeIn(2000);
+            }
+            function login_btn() {
+                var name = $("#name").val();
+                var psd = $("#psd").val();
+                var list = { Name: name, Pwd: psd };
+                $.ajax({
+                    async:false,
+                    type: "POST",
+                    contentType: "application/json;charset=UTF-8",
+                    //请求地址
+                    url: "../Login/XmlList",
+                    //数据，json字符串
+                    data: JSON.stringify(list),
+                    //请求成功
+                    success: function (result) {
+                        //alert("[" + result.UserName + "]登录" + result.LoginNum + "次")
+                        $("#btnBaidu").click(function () {
+                            window.location = "../Email/Index";
+                        });
+                    },
+                    //请求失败，包含具体的错误信息
+                    error: function (e) {
+                        alert(e.responseText)
+                    }
+                })
+            }
+
+
+
+
+/**/</script>
+    </head>
+
+    <body class="login_body" style="background-image: url('../../Image/login.jpg');">
+        <div class="login_div">
+            <div class="col-xs-12 login_title">登录</div>
+            <form action="" class="login" method="post">
+                <div class="nav">
+                    <div class="nav login_nav">
+                        <div class="col-xs-4 login_username">
+                            用户名:
+                        </div>
+                        <div class="col-xs-6 login_usernameInput">
+                            <input type="text" name="" id="name" value="" placeholder="&nbsp;&nbsp;用户名/手机号" onblur="javascript:ok_or_errorBylogin(this)">
+                        </div>
+                        <div class="col-xs-1 ok_gou">
+                            √
+                        </div>
+                        <div class="col-xs-1 error_cuo">
+                            ×
+                        </div>
+                    </div>
+                    <div class="nav login_psdNav">
+                        <div class="col-xs-4">
+                            密&nbsp;&nbsp;&nbsp;码:
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="password" name="" id="psd" value="" placeholder="&nbsp;&nbsp;密码" onblur="javascript:ok_or_errorBylogin(this)">
+                        </div>
+                        <div class="col-xs-1 ok_gou">
+                            √
+                        </div>
+                        <div class="col-xs-1 error_cuo">
+                            ×
+                        </div>
+                    </div>
+                    <div class="col-xs-12 login_btn_div">
+                        <input type="submit" class="sub_btn" value="登录" id="login" onclick="javascript:login_btn()">
+                    </div>
+                </div>
+            </form>
+
+            <div class="col-xs-12 barter_btnDiv">
+                <button class="barter_btn" onclick="javascript:barter_btn(this)">没有账号?前往注册</button>
+            </div>
+        </div>
+
+        <div class="register_body">
+            <div class="col-xs-12 register_title">注册</div>
+            <form action="" class="register" method="post">
+                <div class="nav">
+                    <div class="nav register_nav">
+                        <div class="col-xs-4">
+                            用户名:
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="text" name="" id="name_r" value="" placeholder="&nbsp;&nbsp;用户名/手机号" onblur="javascript:ok_or_errorByRegister(this)">
+                        </div>
+                        <div class="col-xs-1 ok_gou">
+                            √
+                        </div>
+                        <div class="col-xs-1 error_cuo">
+                            ×
+                        </div>
+                    </div>
+                    <div class="nav register_psdnav">
+                        <div class="col-xs-4">
+                            密&nbsp;&nbsp;&nbsp;码:
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="password" name="" id="psd_r" value="" placeholder="&nbsp;&nbsp;密码" onblur="javascript:ok_or_errorByRegister(this)">
+                        </div>
+                        <div class="col-xs-1 ok_gou">
+                            √
+                        </div>
+                        <div class="col-xs-1 error_cuo">
+                            ×
+                        </div>
+                    </div>
+                    <div class="nav register_affirm">
+                        <div class="col-xs-4">
+                            确认密码:
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="password" name="" id="affirm_psd" value="" placeholder="&nbsp;&nbsp;确认密码" onblur="javascript:ok_or_errorByRegister(this)">
+                        </div>
+                        <div class="col-xs-1 ok_gou">
+                            √
+                        </div>
+                        <div class="col-xs-1 error_cuo">
+                            ×
+                        </div>
+                    </div>
+                    <div class="col-xs-12 register_btn_div">
+                        <input type="submit" class="sub_btn" value="注册" id="register">
+                    </div>
+                </div>
+            </form>
+            <div class="col-xs-12 barter_register">
+                <button class="barter_registerBtn" onclick="javascript:barter_btn(this)" style="">已有秘籍?返回登录</button>
+            </div>
+        </div>
+
+    </body>
+    </html>

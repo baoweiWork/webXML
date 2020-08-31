@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserList>
+  <User UserName="8888" UserPsd="1" 登录次数="1"></User>
+  <User UserName="1213" UserPsd="1" 登录次数="1"></User>
+  <User UserName="123" UserPsd="12" 登录次数="10" />
+  <User UserName="程冲" UserPsd="123" 登录次数="2" />
+  <User UserName="胖子" UserPsd="1" 登录次数="2" />
+  <User UserName="" UserPsd="" 登录次数="1" />
+</UserList>
