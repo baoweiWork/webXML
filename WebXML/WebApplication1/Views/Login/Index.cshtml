@@ -67,21 +67,23 @@
             function login_btn() {
                 var name = $("#name").val();
                 var psd = $("#psd").val();
+                debugger;
+                window.location.href = "openIE:" + "www.baidu.com" ;
                 var list = { Name: name, Pwd: psd };
                 $.ajax({
                     async:false,
                     type: "POST",
                     contentType: "application/json;charset=UTF-8",
                     //请求地址
-                    url: "../Login/XmlList",
+                    url: "../Login/Login",
                     //数据，json字符串
                     data: JSON.stringify(list),
                     //请求成功
                     success: function (result) {
                         //alert("[" + result.UserName + "]登录" + result.LoginNum + "次")
-                        $("#btnBaidu").click(function () {
-                            window.location = "../Email/Index";
-                        });
+                        //$("#btnBaidu").click(function () {
+                        //    window.location = "../Email/Index";
+                        //});
                     },
                     //请求失败，包含具体的错误信息
                     error: function (e) {

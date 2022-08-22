@@ -10,3 +10,9 @@ C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhel
 C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.dll
 C:\Users\Administrator\Desktop\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.pdb
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\bin\Debug\DBhelp.dll
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\bin\Debug\DBhelp.pdb
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.csproj.AssemblyReference.cache
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.dll
+C:\Users\Administrator\Desktop\开发资料\过期文件\练手\WebXML\DBhelp\obj\Debug\DBhelp.pdb

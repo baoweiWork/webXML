@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -75,30 +77,39 @@ namespace WebApplication1.Controllers
             string num= loginN.Attribute("登录次数").Value;
             return Json(new{ UserName=name, LoginNum=num });
         }
-
-        /// <summary>
-        /// 检查域名有效性
-        /// </summary>
-        /// <param name="domain">域名，例如：qq.com、baidu.com</param>
-        /// <returns>true 有效，false 无效</returns>
-        public bool IsAvailableIP(string domain)
+        public JsonResult Login(string Name, string Pwd)
         {
-            var IPs = Dns.GetHostAddresses(domain).Where(x => !IPAddress.IsLoopback(x)).ToList();
-            if (IPs.Count > 0)
-            {
-                return true;
-            }
-            return false;
+            string url = @"http://localhost:1122/api/Login/LoginVerification";
+            string context = "{\"sign\"=1,\"userName\"=1,\"passWord\"=1}";
+            string result = HttpApi(url, context);
+            return Json(new { UserName = "", LoginNum = "" });
         }
-
-        public static void KKK()
+        /// <summary>
+        /// 调用api返回json
+        /// </summary>
+        /// <param name="url">api地址</param>
+        /// <param name="context">接收参数</param>
+        /// <returns></returns>
+        public string HttpApi(string uri, string context)
         {
-            //int[] arr = new int[16];
-            //for (int i = 0; i < 16; i++)
-            //{
-            //    arr[i] = i + 1;
-            //}
+            //ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(CheckValidationResult);
 
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Proxy = null;
+            request.Method = "POST";
+
+            //request.Accept = "*/*";
+            request.ContentType = "application/x-www-form-urlencoded";
+            //request.ContentType = "text/html;charset=gbk";
+            byte[] buffer = Encoding.Default.GetBytes(context);
+            request.ContentLength = buffer.Length;
+            //WebRequest.GetSystemWebProxy();
+            request.GetRequestStream().Write(buffer, 0, buffer.Length);
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            if (response == null) return null;
+            StreamReader sr = new StreamReader(response.GetResponseStream());
+            return sr.ReadToEnd().Trim();
         }
 
     }
@@ -108,6 +119,6 @@ namespace WebApplication1.Controllers
         public string Pwd { get; set; }
 
     }
-
    
+
 }
